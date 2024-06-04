@@ -1,11 +1,10 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-const employeeData = [];
+const employeeInfo = [];
 
 // Collect employee data
 const collectEmployees = function() {
   let continueData = true
-
   while (continueData) {
     const firstName = prompt("Enter First Name");
     if (firstName === null) break;
@@ -19,19 +18,15 @@ const collectEmployees = function() {
     } else {
       salary = 0;
     }
-
-    employeeData.push({firstName, lastName, salary});
-
-    continueData = confirm("Would you like to add another employee?")
-                
+    employeeInfo.push({firstName, lastName, salary});
+    continueData = confirm("Would you like to add another employee?")            
  } 
   
-  return employeeData;
+  return employeeInfo;
 };
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
   let sum = 0;
   for (let employee of employeesArray) {
     sum += employee.salary;
@@ -42,16 +37,15 @@ const displayAverageSalary = function(employeesArray) {
   const totalEmployees = employeesArray.length;
   console.log(`The average employee salary between our ${totalEmployees} employee(s) is $${averageSalary}`);
   
-}
+};
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
   const chooseRandom = Math.floor(Math.random() * employeesArray.length);
   const randomEmployee = employeesArray[chooseRandom];
   console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
 
-}
+};
 
 // Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
@@ -88,7 +82,7 @@ const displayEmployees = function(employeesArray) {
   }
 }
 
-const trackEmployeeData = function() {
+const trackemployeeInfo = function() {
   const employees = collectEmployees();
 
   console.table(employees);
@@ -111,4 +105,4 @@ const trackEmployeeData = function() {
 }
 
 // Add event listener to 'Add Employees' button
-addEmployeesBtn.addEventListener('click', trackEmployeeData);
+addEmployeesBtn.addEventListener('click', trackemployeeInfo);
