@@ -7,11 +7,11 @@ const collectEmployees = function() {
   let continueData = true
 
   while (continueData) {
-    const firstName = prompt("Enter first name");
+    const firstName = prompt("Enter First Name");
     if (firstName === null) break;
-    const lastName = prompt("Enter last name");
+    const lastName = prompt("Enter Last Name");
     if (lastName === null) break;
-    let salary = Number(prompt("Enter salary"));
+    let salary = Number(prompt("Enter Salary"));
     if (salary === null) break;
 
     if (salary > 0) {
@@ -36,24 +36,22 @@ const displayAverageSalary = function(employeesArray) {
   for (let employee of employeesArray) {
     sum += employee.salary;
   }
-  console.log(`The sum of all salaries is: $${sum}`) // Calculate the sum of all salaries first so that we can calculate the average later
+  console.log(`The sum of all salaries is: $${sum}`) 
 
   const averageSalary = (sum / employeesArray.length).toFixed(2);
   const totalEmployees = employeesArray.length;
-  console.log(`The average employee salary between our ${totalEmployees} employee(s) is $${averageSalary}`); // average salary of all employees
+  console.log(`The average employee salary between our ${totalEmployees} employee(s) is $${averageSalary}`);
   
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-}
+  const chooseRandom = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[chooseRandom];
+  console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
 
-/*
-  ====================
-  STARTER CODE
-  Do not modify any of the code below this line:
-*/
+}
 
 // Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
